@@ -1,69 +1,144 @@
-.container {
-    max-width: 60%;
-    margin: 0 auto;
-    padding: 20px;
+/* Estilos generales */
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #87ceeb,
+    #e0f7ff
+  ); /* Fondo más suave y claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.5s ease-in-out;
+  overflow: hidden;
+  position: relative;
 }
 
+/* Fondo animado de nubes claras */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* Doblamos el ancho para crear el ciclo continuo */
+  height: 100%;
+  background: url("https://media.istockphoto.com/id/872738908/es/foto/fondo-de-cielo-azul-las-nubes-con-el-fondo.jpg?s=170667a&w=0&k=20&c=ycTF3vkYdoZITWlNRwV8k_pYQc4y09PHmeANzbXWsA4=")
+    no-repeat center center; /* Fondo único sin repetirse */
+  background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+  animation: moveClouds 120s linear infinite; /* Movimiento suave de las nubes */
+  opacity: 0.7; /* Aumenta la opacidad de las nubes para que sea más visible */
+  z-index: -1; /* Asegura que el fondo quede detrás del contenido */
+}
+
+@keyframes moveClouds {
+  from {
+    transform: translateX(0); /* Comienza en la posición inicial */
+  }
+  to {
+    transform: translateX(
+      -50%
+    ); /* Mueve el fondo a la izquierda y hace que se repita sin cortes */
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
 
 h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 4px 4px 10px rgba(0, 157, 255, 0.6),
+    0 0 25px rgba(0, 0, 255, 0.3); /* Sombra más pronunciada */
 }
 
 form {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 button {
-    padding: 10px 20px;
-    background-color: rgb(40, 97, 163);
-    color: white;
-    border: none;
-    border: 4px;
-    cursor: pointer;
-    transition: 1s all ease;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ff7eb3, #ff4f88);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-size: 16px;
+  box-shadow: 0 5px 15px rgba(255, 78, 136, 0.4);
 }
 
 button:hover {
-    background-color: rgb(83, 151, 230);
+  background: linear-gradient(135deg, #ff4f88, #ff1a62);
+  box-shadow: 0 8px 20px rgba(255, 78, 136, 0.6);
 }
 
-h2 {
-    font-size: 30px;
+.weather-info {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-in-out;
 }
 
-h1,h2{
-    color: white;
+img {
+  width: 120px;
+  height: auto;
+  margin-top: 15px;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
 }
 
-p {
-    margin-bottom: 5px;
-    color: white;
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
 }
 
-img{
-    width: 100px;
-    height: auto;
-    margin-top: 10px;
-}
-
-@media (max-width:900px){
-    .container{
-        max-width: 80%;
-    }
-
-    h1{
-        font-size: 35px;
-    }
-    h2{
-        font-size: 25px;
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
