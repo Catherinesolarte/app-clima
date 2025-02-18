@@ -97,7 +97,7 @@ Se muestra un formulario con un campo para la ciudad y un botón para enviar.
 Si los datos están disponibles en weatherData, se muestran:
 El nombre de la ciudad.
 La temperatura (convertida de Kelvin a Celsius).
-La condición del clima.
+La condición del clima. 🌤️
 Un ícono que representa el clima.
 🔑 Recuerda:
 ¡Reemplaza 'YOUR_API_KEY'con tu clave de API de OpenWeatherMap! 🔑
